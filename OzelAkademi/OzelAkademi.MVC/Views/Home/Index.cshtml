@@ -1,0 +1,446 @@
+﻿@model List<AdvertViewModel>
+@{
+    ViewData["Title"] = "Home Page";
+    List<AdvertViewModel> adverts = Model;
+}
+@*
+<div class="row">
+    <div class="col">
+        @if (Model.Count() > 0)
+        {
+            <div class="row">
+                @foreach(var advert in adverts)
+                {
+                    <div class="col-4">
+                        @await Html.PartialAsync("_AdvertPartial", advert)
+                    </div>
+                }
+            </div>
+        }else
+        {@await Html.PartialAsync("_NoRecord","İlan")}
+    </div>
+</div>*@
+
+<section id="home" class="video-section js-height-full">
+    <div class="overlay"></div>
+    <div class="home-text-wrapper relative container">
+        <div class="home-message">
+            <p>Online Öğrenme Merkezi</p>
+            <small>Özel Akademi, kuruluşunuz, işiniz ve çevrimiçi eğitim sisteminiz için ideal seçimdir. Sınırsız sayfa şablonu ve menü özellikleriyle çevrimiçi kursunuzu şimdi oluşturun.</small>
+           @* <div class="btn-wrapper">
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary wow slideInLeft">Devamını oku</a> &nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-default wow slideInRight">Buy Now</a>
+                </div>
+            </div><!-- end row -->*@
+        </div>
+    </div>
+    <div class="slider-bottom">
+        <span>Keşfedin <i class="fa fa-angle-down"></i></span>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 hidden-sm hidden-xs">
+                <div class="custom-module" style="margin-top:50px;">
+                    <img style="filter: grayscale(0%) sepia(100%) hue-rotate(135deg) brightness(100%);" src="~/images/ders.svg" alt="" class="img-responsive wow slideInLeft">
+                </div><!-- end module -->
+            </div><!-- end col -->
+            <div class="col-md-8">
+                <div class="custom-module p40l">
+                    <h2>
+                        En İyi Öğretmenlerden Online Veya Yüz Yüze Ders Alın
+                    </h2>
+
+                    <p>Alanında Uzman Öğretmenleri Keşfet!</p>
+                    <p>Özel Ders alanında her yıl onbinlerce öğrenci aradığı öğretmeni buluyor.</p>
+
+                    <hr class="invis">
+
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 first">
+                            <ul class="check">
+                                <li>Türkçe</li>
+                                <li>Almanca</li>
+                                <li>İngilizce</li>
+                                <li>İspanyolca</li>
+                                <li>Fransızca</li>
+                            </ul><!-- end check -->
+                        </div><!-- end col-lg-4 -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <ul class="check">
+                                <li>Matematik</li>
+                                <li>İstatistik</li>
+                                <li>Fizik</li>
+                                <li>Kimya</li>
+                                <li>Ekonomi</li>
+                            </ul><!-- end check -->
+                        </div><!-- end col-lg-4 -->
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 last">
+                            <ul class="check">
+                                <li>Yazılım</li>
+                                <li>Kişişel Gelişim</li>
+                                <li>Özel Eğitim</li>
+                                <li>Mühendislik</li>
+                                <li>Mimarlık</li>
+                            </ul><!-- end check -->
+                        </div><!-- end col-lg-4 -->
+                    </div><!-- end row -->
+
+                    <hr class="invis">
+
+                    <div class="btn-wrapper">
+                        <a href="#" class="btn btn-primary">Daha Fazla Göster</a>
+                    </div>
+
+                </div><!-- end module -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+<section class="section gb">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Önerilen İlanlar</h3>
+            <p>En İyi Öğretmenlerden Online Veya Yüz Yüze Dersler Alın</p>
+            <p>Kendiniz Veya Çocuğunuz Için En Ideal Öğretmeni Hemen Bul!</p>
+        </div><!-- end title -->
+
+        <div id="owl-01" class="owl-carousel owl-theme owl-theme-01">
+            @if (Model.Count() > 0)
+            {
+                    @foreach (var advert in adverts)
+                    {
+                        @await Html.PartialAsync("_AdvertPartial", advert)
+                    }
+            }
+            else
+            {
+                @await Html.PartialAsync("_NoRecord","İlan")
+            }
+           
+
+            @*<div class="caro-item">
+                <div class="course-box">
+                    <div class="image-wrap entry">
+                        <img src="upload/course_02.jpg" alt="" class="img-responsive">
+                        <div class="magnifier">
+                            <a href="#" title=""><i class="flaticon-add"></i></a>
+                        </div>
+                    </div><!-- end image-wrap -->
+                    <div class="course-details">
+                        <h4>
+                            <small>Design</small>
+                            <a href="#" title="">Designing Game UI Assets in Adobe Illustrator</a>
+                        </h4>
+                        <p>Curabitur condimentum velit non odio mattis tristique. Nam vitae orci aliquam. </p>
+                    </div><!-- end details -->
+                    <div class="course-footer clearfix">
+                        <div class="pull-left">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-user"></i> 41</a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i> 33 Min.</a></li>
+                            </ul>
+                        </div><!-- end left -->
+
+                        <div class="pull-right">
+                            <ul class="list-inline">
+                                <li><a href="#">$55.00</a></li>
+                            </ul>
+                        </div><!-- end left -->
+                    </div><!-- end footer -->
+                </div><!-- end box -->
+            </div><!-- end col -->
+
+            <div class="caro-item">
+                <div class="course-box">
+                    <div class="image-wrap entry">
+                        <img src="upload/course_03.jpg" alt="" class="img-responsive">
+                        <div class="magnifier">
+                            <a href="#" title=""><i class="flaticon-add"></i></a>
+                        </div>
+                    </div><!-- end image-wrap -->
+                    <div class="course-details">
+                        <h4>
+                            <small>PHP Coding</small>
+                            <a href="#" title="">How to Become a Web Developer: Learn PHP</a>
+                        </h4>
+                        <p>Donec auctor nec nibh sit amet pulvinar. Mauris nulla elit, lacinia ac facilisis mattis.</p>
+                    </div><!-- end details -->
+                    <div class="course-footer clearfix">
+                        <div class="pull-left">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-user"></i> 35</a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i> 1 Hrs.</a></li>
+                            </ul>
+                        </div><!-- end left -->
+
+                        <div class="pull-right">
+                            <ul class="list-inline">
+                                <li><a href="#">$51.00</a></li>
+                            </ul>
+                        </div><!-- end left -->
+                    </div><!-- end footer -->
+                </div><!-- end box -->
+            </div><!-- end col -->
+
+            <div class="caro-item">
+                <div class="course-box">
+                    <div class="image-wrap entry">
+                        <img src="upload/course_04.jpg" alt="" class="img-responsive">
+                        <div class="magnifier">
+                            <a href="#" title=""><i class="flaticon-add"></i></a>
+                        </div>
+                    </div><!-- end image-wrap -->
+                    <div class="course-details">
+                        <h4>
+                            <small>PHP Coding</small>
+                            <a href="#" title="">How to Build a Custom Theme for Drupal 8</a>
+                        </h4>
+                        <p>Pellentesque ut enim dictum, interdum lorem eget, vulputate eros sed felis euismod.</p>
+                    </div><!-- end details -->
+                    <div class="course-footer clearfix">
+                        <div class="pull-left">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-user"></i> 35</a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i> 45 Min.</a></li>
+                            </ul>
+                        </div><!-- end left -->
+
+                        <div class="pull-right">
+                            <ul class="list-inline">
+                                <li><a href="#">$51.00</a></li>
+                            </ul>
+                        </div><!-- end left -->
+                    </div><!-- end footer -->
+                </div><!-- end box -->
+            </div><!-- end col -->
+
+            <div class="caro-item">
+                <div class="course-box">
+                    <div class="image-wrap entry">
+                        <img src="upload/course_01.jpg" alt="" class="img-responsive">
+                        <div class="magnifier">
+                            <a href="#" title=""><i class="flaticon-add"></i></a>
+                        </div>
+                    </div><!-- end image-wrap -->
+                    <div class="course-details">
+                        <h4>
+                            <small>Javascript</small>
+                            <a href="#" title="">Modern JavaScript Linting With ESLint</a>
+                        </h4>
+                        <p>Fusce interdum, elit sit amet vehicula malesuada, eros libero elementum orci.</p>
+                    </div><!-- end details -->
+                    <div class="course-footer clearfix">
+                        <div class="pull-left">
+                            <ul class="list-inline">
+                                <li><a href="#"><i class="fa fa-user"></i> 21</a></li>
+                                <li><a href="#"><i class="fa fa-clock-o"></i> 15 Min.</a></li>
+                            </ul>
+                        </div><!-- end left -->
+
+                        <div class="pull-right">
+                            <ul class="list-inline">
+                                <li><a href="#">$22.00</a></li>
+                            </ul>
+                        </div><!-- end left -->
+                    </div><!-- end footer -->
+                </div><!-- end box -->
+            </div><!-- end col -->*@
+        </div><!-- end row -->
+
+        <hr class="invis">
+
+        <div class="section-button text-center">
+            <a asp-area="" asp-controller="Home" asp-action="PrivatePage"
+                class="btn btn-primary" style="border-radius:5px;">Tüm ilanları göster</a>
+        </div>
+    </div><!-- end container -->
+</section>
+
+<section class="section db p120">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tagline-message text-center">
+                    <h3>Merhabalar biz Özel Akademi olarak en kaliteli hizmetleri, teklifleri, projeleri sizler için bir araya getirdik!</h3>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+
+<section class="section gb nopadtop">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-computer-tool-for-education"></i>
+                    <h4>Öğrenme sistemi</h4>
+                    <p>Online eğitim için gerekli tüm bölümleri Özel Akademide bulabilirsiniz.</p>
+                    <a class="readmore">Devamını oku</a>
+                </div>
+            </div><!-- end col -->
+
+            <div class="col-md-6">
+                <div class="box m30" style="height:335px">
+                    <i class="flaticon-monitor-tablet-and-smartohone"></i>
+                    <h4>Tüm mobil cihazlarda çalışır</h4>
+                    <p style="height:75px">Bu sitenin en önemli özelliği tüm mobil cihazlarla uyumlu olmasıdır. Herkes sitenimi tablet ve telefonlardan kolayca ziyaret edebilir.</p>
+                    <a class="readmore">Devamını oku</a>
+                </div>
+            </div><!-- end col -->
+
+            <div class="col-md-3">
+                <div class="box m30">
+                    <i class="flaticon-download-business-statistics-symbol-of-a-graphic"></i>
+                    <h4>Kullanıcı Panosu</h4>
+                    <p>Kullanıcıların ihtiyacı olan tüm gereksinimleri sağladık.</p>
+                    <a class="readmore">Devamını oku</a>
+                </div>
+            </div><!-- end col -->
+        </div><!-- end row -->
+
+        <hr class="invis">
+
+        <div class="row">
+            <div class="section-title text-center">
+                <h3>Kayıt ol</h3>
+                <p>Sen de Ders vermek ve ya Ders almak istiyorsan hemen üye ol!</p>
+            </div><!-- end title -->
+            <div class="col-md-6 ">
+                <div class="box wow slideInLeft boxed boxedp4" style="margin-top:10px;">
+                    @*<i class="flaticon-html5"></i> <i class="flaticon-css-3"></i>*@
+                    <img src="~/images/classroom.png" width="100px"/>
+                    <h2>Öğretmen</h2>
+                    <h4>Ders Vermek İstiyorum</h4>
+                    <p>Uzman olduğum alanda ders vermek istiyorum.</p>
+                    <a asp-area="" asp-controller="Account" asp-action="RegisterTeacher" class="btn btn-primary">Özel Ders Vermeye Başla</a>
+                </div>
+            </div><!-- end col -->
+            <div class="col-md-6">
+                <div class="box wow slideInRight boxed boxedp4" style="margin-top:10px;">
+                    @*<i class="flaticon-html-coding"></i>*@
+                    <img src="~/images/graduated.png" width="100px" />
+
+                    <h2>Öğrenci</h2>
+                    <h4>Ders Almak İstiyorum</h4>
+                    <p>İhtiyaçlarına en uygun öğretmenlerle tanışın.</p>
+                    <a asp-area="" asp-controller="Account" asp-action="RegisterStudent" class="btn btn-primary">Özel Ders Almaya Başla</a>
+
+                </div>
+            </div><!-- end col -->
+            @*<div class="col-md-6">
+                <div class="box">
+                    <i class="flaticon-html5"></i> <i class="flaticon-css-3"></i>
+                    <h4>Compatible HTML5 & CSS3</h4>
+                    <p>HTML5 is a markup language used for structuring and presenting content on the World Wide Web. It is the fifth and current version of the HTML standard.</p>
+                    <a  class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->*@
+
+            @*<div class="col-md-6">
+                <div class="box">
+                    <i class="flaticon-html-coding"></i>
+                    <h4>Bootstrap Framework</h4>
+                    <p>Bootstrap is a technique of loading a program into a computer by means of a few initial instructions which enable the introduction of the rest of the program from an input device.</p>
+                    <a href="#" class="readmore">Read more</a>
+                </div>
+            </div><!-- end col -->*@
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+<section class="section db">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-count">
+                    <h4 class="stat-timer">124</h4>
+                    <h3><i class="flaticon-black-graduation-cap-tool-of-university-student-for-head"></i> Mutlu Üyeler</h3>
+                    <p>Üyelerimizden aldığımız pozitif geri dönüş sayımız </p>
+                </div><!-- stat-count -->
+            </div><!-- end col -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-count">
+                    <h4 class="stat-timer">154</h4>
+                    <h3><i class="flaticon-online-course"></i> Tamamlanmış Eğitim</h3>
+                    <p>Sende kariyerine yeni bir yetenek eklemek istiyorsan hemen üye ol ve bir özel ders alarak başla! </p>
+                </div><!-- stat-count -->
+            </div><!-- end col -->
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-count">
+                    <h4 class="stat-timer">231</h4>
+                    <h3><i class="fa fa-user"></i> Kayıtlı Üye</h3>
+                    <p>Sitemize kayıtlı öğretmen ve öğrenci sayımız. </p>
+                    <a style="color:#01BACF;" asp-area="" asp-controller="Account" asp-action="Register">Üye olmak istiyorum</a>
+
+                </div><!-- stat-count -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title text-center">
+            <h3>Görüşler</h3>
+            <p>Özel Akademi sitesi olarak görüşlerinizi önemsiyoruz.</p>
+            <p>Değerli kullanıcılarımızın yazdığı görüşleri aşağıda bulabilirsiniz.</p>
+        </div><!-- end title -->
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box testimonial">
+                    <p class="testiname"><strong><img src="~/images/p2.jpg" alt="" class="img-circle"> Ceylin ÖZSOY</strong></p>
+                    <p>Oğlumuz için siteniz aracılığı ile çok sayıda öğretmen arasından kendi semtimizde çok iyi bir öğretmen bulduk. Kısa süre içinde oğlumuzun derse olan ilgisi ve kendine güveni arttı. Teşekkürler!</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div><!-- end testimonial -->
+            </div><!-- end col -->
+
+            <div class="col-md-4">
+                <div class="box testimonial">
+                    <p class="testiname"><strong><img src="~/images/p3.jpg" alt="" class="img-circle"> Sinem TÜRK</strong></p>
+                    <p>Özel Akademi sayesinde tanıştığım ve 2 yıldan beri çalıştığım öğrencilerimi başarıya ulaştırdım. Birbirinden güzel dostluklar kurmamı sağlayan ve bana öğrenci yetiştirme fırsatı veren Özel Akademi'ye teşekkürler.</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div><!-- end testimonial -->
+            </div><!-- end col -->
+
+            <div class="col-md-4">
+                <div class="box testimonial">
+                    <p class="testiname"><strong><img src="~/images/p1.jpg" alt="" class="img-circle"> Ufuk AYGUN</strong></p>
+                    <p>Sabah açtığım ilana öğlene kadar, hepsi alanında uzman öğretmenler tarafından ilgi gösterildi. Bu sitenin tanıtımının daha fazla yapılması lazım. Şiddetle öneriyorum. Sosyal medya hesaplarımda tanıtımınızı yapacağım.</p>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                </div><!-- end testimonial -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section>
+
+
+
+
+
+

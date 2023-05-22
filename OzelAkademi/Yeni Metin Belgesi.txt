@@ -1,0 +1,16 @@
+iletisimozelakademi@hotmail.com
+
+Kullanıcı Giriş Bilgileri
+
+Admin
+Kullanıcı Ad: cem
+Şifre: Qwe123.
+
+Teacher
+Kullanıcı Ad: ali
+Şifre: Qwe123.
+
+Student
+Kullanıcı veli
+Şifre: Qwe123.
+

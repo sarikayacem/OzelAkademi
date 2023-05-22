@@ -1,0 +1,76 @@
+﻿@model LoginViewModel
+@*<section id="home" class="video-section js-height-full">
+    <div class="overlay"></div>
+    <div class="home-text-wrapper relative container">
+        <div class="home-message">
+            <p>Online Öğrenme Merkezi</p>
+            <small>Özel Akademi, kuruluşunuz, işiniz ve çevrimiçi eğitim sisteminiz için ideal seçimdir. Sınırsız sayfa şablonu ve menü özellikleriyle çevrimiçi kursunuzu şimdi oluşturun.</small>
+            <div class="btn-wrapper">
+                <div class="text-center">
+                    <a href="#" class="btn btn-primary wow slideInLeft">Devamını oku</a> &nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-default wow slideInRight">Buy Now</a>
+                </div>
+            </div><!-- end row -->
+        </div>
+    </div>
+    <div class="slider-bottom">
+        <span>Keşfedin <i class="fa fa-angle-down"></i></span>
+    </div>
+</section>*@
+<div style="background-color:black; height:160px"></div>
+<div class="container">
+    <div class="row mr-0 mt-70 mb-70">
+        <div class="col-md-offset-3" style=" margin-top:50px; ">
+            <div class="boxed boxedp4" style="width:600px; border-radius:15px;">
+                <div class="section-title text-center  wow slideInDown">
+                    <h3>Giriş Yap</h3>
+
+                </div><!-- end title -->
+
+                <form asp-area="" asp-controller="Account" asp-action="Login" method="post"
+                      class="big-contact-form" role="search">
+
+                    <!--Kullanıcı Adı -->
+                    <div class="h-80 wow slideInLeft" style="width:400px; margin-left:50px">
+                        <label>Kullanıcı Adı</label>
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                        <input class="form-control" asp-for="UserName" placeholder="Kullanıcı adı giriniz..">
+                    </div>
+
+                    <!--Şifre -->
+                    <div class="mb-20 wow slideInRight" style="width:400px; margin-left:50px">
+                        <label>Şifre</label>
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                        <input class="form-control" asp-for="Password" placeholder="Şifrenizi giriniz..">
+                    </div>
+
+                    <!--Buton -->
+                    <div class="wow slideInUp" style="display:flex; justify-content:center; margin-top:40px;">
+                        <button type="submit" class="btn btn-primary" style="border-radius:5px;">Giriş Yap</button>
+                    </div>
+
+
+                </form>
+            </div>
+
+        </div><!-- end col -->
+    </div><!-- end row -->
+</div>
+@* <h1 class="display-6">Giriş Yap</h1>
+    <hr />
+    <form asp-area="" asp-controller="Account" asp-action="Login" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row w-25">
+            <div class="col-6 mb-3">
+                <label class="form-label" asp-for="UserName"></label>
+                <input class="form-control" asp-for="UserName"/>
+                <span class="text-danger" asp-validation-for="UserName"></span>
+            </div>
+            <div class="col-6 mb-3">
+                <label class="form-label" asp-for="Password"></label>
+                <input class="form-control" asp-for="Password" />
+                <span class="text-danger" asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    </form>
+*@

@@ -1,0 +1,91 @@
+﻿@model AdvertViewModel
+<div class="col-md-3">
+<div class="caro-item">
+
+    <div class="course-box">
+        <div class="image-wrap entry">
+            @*<img src="upload/course_01.jpg" alt="" class="img-responsive">*@
+            <img src="../images/@Model.Teacher.User.Image.Url" alt="" class="img-responsive" style="border-radius:50%">
+            <div class="magnifier">
+                <a href="#" title=""><i class="flaticon-add"></i></a>
+            </div>
+        </div><!-- end image-wrap -->
+        <div class="course-details">
+            <p>@Model.Teacher.User.FirstName @Model.Teacher.User.LastName.Substring(0,1).</p>
+            <h4>
+                <small>@Model.Lesson.Name</small>
+                <a href="#" title="">@Model.Name</a>
+            </h4>
+            <p>@Model.Description</p>
+        </div><!-- end details -->
+        <div class="course-footer clearfix">
+            <div class="pull-left">
+                <ul class="list-inline">
+                    <li><a href="#"><i class="fa fa-clock-o"></i> 1 Saat</a></li>
+                </ul>
+            </div><!-- end left -->
+
+            <div class="pull-right">
+                <ul class="list-inline">
+                    <li><a href="#">@Model.Price TL</a></li>
+            </div><!-- end left -->
+
+            <a asp-area="" asp-controller="Home" asp-action="AdvertDetails" asp-route-name="@Model.Name"
+                class="btn btn-primary" style="margin-top:10px; margin-left:22px;">Detay Göster</a>
+
+        </div><!-- end footer -->
+    </div><!-- end box -->
+</div><!-- end col -->
+</div><!-- end col -->
+
+@*<div class="col-md-3">
+    <div class="caro-item">
+        <div class="course-box">
+            <div class="course-box shop-wrapper">
+                <div>
+                    <div class="image-wrap entry" style="width:240px; margin:auto;">
+                        <img src="../images/@Model.Teacher.User.Image.Url" alt="" class="img-responsive" style="border-radius: 50%">
+                        <div class="magnifier">
+                            <a href="shop-single.html" title=""><i class="flaticon-add"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end image-wrap -->
+                <div class="course-details shop-box text-center">
+
+                    <p>@Model.Teacher.User.FirstName @Model.Teacher.User.LastName.Substring(0,1).</p>
+                    <small>@Model.Lesson.Name</small>
+                    <h4>
+                        <a href="shop-single.html" title="">@Model.Name</a>
+
+                    </h4>
+                    <p>@Model.Description</p>
+                    <p>@Model.Comment</p>
+                </div>
+                <!-- end details -->
+                <div class="course-footer clearfix">
+                    <div class="pull-left">
+                        <ul class="list-inline">
+                            <p><a href="#"><i class="fa fa-user"></i> 21</a> <i class="fa fa-clock-o"></i>Saatlik</p>
+                            <p></p>
+                            <li><a href="#"><i class="fa fa-user"></i> 21</a></li>
+                            <li><a href="#"><i class="fa fa-clock-o"></i> Saatlik</a></li>
+
+
+                            <li><a href="#"><i class="fa fa-shopping-basket"></i>Add Cart</a></li>
+                        </ul>
+                    </div><!-- end left -->
+
+                    <div class="pull-right">
+                        <ul class="list-inline">
+                            <li><a>@Model.Price TL</a></li>
+                        </ul>
+                    </div><!-- end left -->
+                </div><!-- end footer -->
+            </div><!-- end box -->
+        </div>
+    </div>
+</div>
+*@
+<!-- end col -->

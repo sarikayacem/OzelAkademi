@@ -1,0 +1,63 @@
+﻿<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Özel Ders</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Online Ders</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Kurslar</a>
+    </li>
+</ul>
+
+<ul class="navbar-nav">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+            </li>
+        }
+        if (User.IsInRole("Teacher"))
+        {
+             <div class="dropdown">
+                <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    İşlemler
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Teacher" asp-action="Index" asp-route-id ="@User.Identity.Name">İlanlarım</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        }
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Manage" asp-route-id="@User.Identity.Name">Hesabım</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Çıkış Yap</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="RegisterTeacher">Öğretmen Kayıt Ol</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="RegisterStudent">Öğrenci Kayıt Ol</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+        </li>
+        
+    }
+
+    
+    
+
+    
+</ul>
+

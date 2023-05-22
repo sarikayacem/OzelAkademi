@@ -1,0 +1,64 @@
+﻿@using OzelAkademi.Entity.Concrete;
+@model List<Order>
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Öğrenci İşlemleri</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Kullanıcı İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Öğrenci İşlemleri</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Öğrencileri listeleme, düzenleme ve silme işlemleri yapabilirsiniz.</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Öğrenci Adı Soyadı</th>
+                                    <th>Öğretmen Adı Soyadı</th>
+                                    <th>İlan Adı</th>
+                                    <th>Ücret</th>
+                                    <th>Sipariş Tarihi</th>
+                                    <th>Ödeme Durumu</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model)
+                                {
+                                    <tr>
+                                        <td class="align-middle">@order.Id</td>
+                                        <td class="align-middle">@order.User.FirstName @order.User.LastName</td>
+                                        <td class="align-middle">@order.Advert.Teacher.User.FirstName @order.Advert.Teacher.User.LastName
+                                        </td>
+                                        <td class="align-middle">@order.Advert.Name</td>
+                                        <td class="align-middle">@order.Advert.Price</td>
+                                        <td class="align-middle">@order.OrderDate</td>
+                                        <td class="align-middle text-success">@order.OrderState</td>
+                                        
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

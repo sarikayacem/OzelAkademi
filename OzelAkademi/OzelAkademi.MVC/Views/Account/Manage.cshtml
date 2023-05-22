@@ -1,0 +1,271 @@
+﻿@model UserManageViewModel
+
+<div style="background-color:black; height:180px"></div>
+<div class="container">
+    <div class="row" style="display:flex; justify-content:center">
+        <div class="col-md-10">
+            <div class="box mt-40">
+                <div class="card mb-4">
+                    <h5 class="card-header">Hesap Detayları</h5>
+                    <!-- Account -->
+                    <hr />
+                    <div class="card-body">
+                        <form asp-area=""
+                              asp-controller="Account"
+                              asp-action="Manage"
+                              method="post"
+                              enctype="multipart/form-data">
+                            <input type="hidden" name="Id" value="@Model.Id" />
+                            <input type="hidden" asp-for="Image.Id" />
+                            <div style="margin-left:350px;">
+
+                                @if (Model.Image != null)
+                                {
+                                    <img src="~/images/@Model.Image.Url" width="150" height="150" />
+                                }
+                            </div>
+
+                            <div style="margin-left:370px;">
+                                @*<label class="btn btn-primary me-2 mb-4">
+                                <span class="d-none d-sm-block">Upload new photo</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input type="file" class="account-file-input" hidden asp-for="ImageUrl" accept="~/images/" />
+                                </label>*@
+                                <div style="margin-bottom:10px;display:flex;">
+                                    <label class="text-primary" for="image_uploads" style="cursor:pointer;">Resim Değiştir</label>
+                                    <input type="file" id="image_uploads" style="display:none" asp-for="ImageUrl" accept="~/images/">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="FirstName"></label>
+                                    <input class="form-control" asp-for="FirstName" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="LastName"></label>
+                                    <input class="form-control" asp-for="LastName" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="UserName"></label>
+                                    <input class="form-control" asp-for="UserName" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="Email"></label>
+                                    <input class="form-control" asp-for="Email" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="City"></label>
+                                    <input class="form-control" asp-for="City" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="District"></label>
+                                    <input class="form-control" asp-for="District" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="Description"></label>
+                                    <input class="form-control" asp-for="Description" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="Place"></label>
+                                    <input class="form-control" asp-for="Place" />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label" asp-for="DateOfBirth"></label>
+                                    @{
+                                        DateTime today = DateTime.Now;
+                                        int year = today.Year;
+                                        int yearPart = year - 18;
+                                        int monthPart = today.Month;
+                                        int dayPart = today.Day;
+                                        DateTime minimumDateOfBirth = new DateTime(yearPart, monthPart, dayPart);
+                                    }
+                                    <input class="form-control"
+                                           asp-for="DateOfBirth"
+                                           value="@(Model.DateOfBirth==null ? minimumDateOfBirth.ToString("yyyy-MM-dd") : ((DateTime)Model.DateOfBirth).ToString("yyyy-MM-dd"))"
+                                           min="1990-01-01"
+                                           max="@minimumDateOfBirth.ToString("yyyy-MM-dd")" />
+
+                                </div>
+                                <div class="col-md-6" style="margin-top:32px;">
+                                    <label class="form-label" style="margin-right:10px;" asp-for="Gender"></label>
+                                    <select asp-for="Gender" asp-items="@Model.GenderSelectList" class="form-select">
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="margin-top:32px; margin-left:300px;">
+                                <button type="submit" class="btn btn-primary me-2">Değişiklikleri Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="box" style="margin-top:10px;margin-bottom:40px; ">
+                <h5 class="card-header">Hesabımı Sil</h5>
+                <div class="card-body">
+                    <div class="mb-3 col-12 mb-0">
+                        <div class="alert alert-warning">
+                            <h6 class="alert-heading fw-bold mb-1">Hesabınızı silmek istediğinizden emin misiniz?</h6>
+                            <p class="mb-0">Hesabınızı bir kez sildikten sonra geri dönüş yoktur. Lütfen emin olun.</p>
+                        </div>
+                    </div>
+                    <form id="formAccountDeactivation" onsubmit="return false">
+                        <div class="form-check mb-3">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   name="accountActivation"
+                                   id="accountActivation" />
+                            <label class="form-check-label" for="accountActivation">Hesabımın silinmesini onaylıyorum</label>
+                        </div>
+                        <button type="submit" class="btn btn-danger deactivate-account">Hesabımı Sil</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="row mt-40 mb-70 mr-0">
+    <div class="col-md-3 col-md-offset-4 slideInUp">
+        <div class="section-title text-center ">
+            <h3>Hesabım</h3>
+            @*<p>Maecenas sit amet tristique turpis. Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis.</p>
+        </div><!-- end title -->
+        <form >
+
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <input type="hidden" asp-for="Image.Id" />
+            <div class="row">
+                <div class="col-3" style="margin-left:500px;">
+                <div class="col-12 mb-3">
+                @if (Model.Image != null)
+                {
+                <img src="~/images/@Model.Image.Url" width="200" height="200" />
+                }
+
+                </div>
+                </div>
+                <div class="col-9">
+                    <div class="col-md-12">
+                        <h1 class="display-6 fs-3 text-danger">Hesabım</h1>
+                        <hr />
+                        <div class="row">
+                            <div class="h-80">
+                                <label class="form-label" asp-for="ImageUrl"></label>
+                                <input type="file" class="form-control" asp-for="ImageUrl" accept="~/images/" />
+                                <span class="text-danger" asp-validation-for="ImageUrl"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="margin-left:75px;">Değişiklikleri Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div><!-- end col -->
+</div><!-- end row -->
+*@
+@*<form asp-area=""
+      asp-controller="Account"
+      asp-action="Manage"
+      method="post"
+enctype="multipart/form-data">
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <input type="hidden" asp-for="Image.Id" />
+    <div class="row">
+        <div class="col-3">
+            <div class="col-12 mb-3">
+                @if (Model.Image != null)
+                {
+                    <img src="~/images/@Model.Image.Url" width="200" height="200" />
+                }
+
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="col-md-12">
+                <h1 class="display-6 fs-3 text-danger">Hesabım</h1>
+                <hr />
+                <div class="row">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="col-12 mb-3">
+                        @if (Model.Image != null)
+                        {
+                            @*<img src="~/images/@Model.Image.Url" width="200" height="200" />
+                        }
+
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="FirstName"></label>
+                        <input class="form-control" asp-for="FirstName" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="LastName"></label>
+                        <input class="form-control" asp-for="LastName" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="UserName"></label>
+                        <input class="form-control" asp-for="UserName" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="Email"></label>
+                        <input class="form-control" asp-for="Email" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="City"></label>
+                        <input class="form-control" asp-for="City" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="District"></label>
+                        <input class="form-control" asp-for="District" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="Description"></label>
+                        <input class="form-control" asp-for="Description" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="Place"></label>
+                        <input class="form-control" asp-for="Place" />
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="Gender"></label>
+                        <select asp-for="Gender" asp-items="@Model.GenderSelectList" class="form-select">
+                        </select>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="DateOfBirth"></label>
+                        @{
+                            DateTime today = DateTime.Now;
+                            int year = today.Year;
+                            int yearPart = year - 18;
+                            int monthPart = today.Month;
+                            int dayPart = today.Day;
+                            DateTime minimumDateOfBirth = new DateTime(yearPart, monthPart, dayPart);
+                        }
+                        <input class="form-control"
+                               asp-for="DateOfBirth"
+                               value="@(Model.DateOfBirth==null ? minimumDateOfBirth.ToString("yyyy-MM-dd") : ((DateTime)Model.DateOfBirth).ToString("yyyy-MM-dd"))"
+                               min="1990-01-01"
+                               max="@minimumDateOfBirth.ToString("yyyy-MM-dd")" />
+
+                    </div>
+                    <div class="col-6 mb-3">
+                        <label class="form-label" asp-for="ImageUrl"></label>
+                        <input type="file" class="form-control" asp-for="ImageUrl" accept="~/images/" />
+                        <span class="text-danger" asp-validation-for="ImageUrl"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Değişiklikleri Kaydet</button>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+</form>*@

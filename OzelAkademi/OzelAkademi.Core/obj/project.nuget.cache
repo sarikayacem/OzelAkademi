@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "2iP52SmyGZJ8fum09v7M/DSm2u2Vzp/0vRytLE1TSDo3i4D70HKA/YiOnpfUaKRiS7YMbUl6F/2W+uBdmE2D7w==",
+  "success": true,
+  "projectFilePath": "C:\\Git\\BitirmeProjesi\\OzelAkademi\\OzelAkademi.Core\\OzelAkademi.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Cem\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\Cem\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\Cem\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Cem\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

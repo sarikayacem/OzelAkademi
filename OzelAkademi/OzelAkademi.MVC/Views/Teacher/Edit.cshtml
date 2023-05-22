@@ -1,0 +1,48 @@
+﻿@model AdvertUpdateViewModel
+<div style="background-color:black; height:180px"></div>
+<div class="row mt-50 mb-70 mr-0">
+    <div class="container">
+        <h1 class="display-6 mt-2">İlan Güncelleme</h1>
+        <hr />
+        <div class="col-md-5 col-md-offset-3">
+            <form asp-area=""
+                  asp-controller="Teacher"
+                  asp-action="Edit"
+                  method="post">
+                <div class="row mb-20">
+                    <div class="col-6">
+                        <div class="row" >
+                            <div class="col">
+                                <div class="h-80">
+                                    <label class="form-label" asp-for="Name"></label>
+                                    <input class="form-control" asp-for="Name" />
+                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                </div>
+                                <div class="h-80">
+                                    <label class="form-label" asp-for="Description"></label>
+                                    <input class="form-control" asp-for="Description" />
+                                    <span class="text-danger" asp-validation-for="Description"></span>
+                                </div>
+                                <div class="h-80">
+                                    <label class="form-label" asp-for="Price"></label>
+                                    <input class="form-control" asp-for="Price" />
+                                    <span class="text-danger" asp-validation-for="Price"></span>
+                                </div>
+                                <div class="h-80">
+                                    <label class="form-label" asp-for="Comment"></label>
+                                    <input class="form-control" asp-for="Comment" />
+                                    <span class="text-danger" asp-validation-for="Comment"></span>
+                                </div>
+
+
+                            </div>
+                            <span>Son Düzenleme: <span>@Model.ModifiedDate</span></span>
+
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>

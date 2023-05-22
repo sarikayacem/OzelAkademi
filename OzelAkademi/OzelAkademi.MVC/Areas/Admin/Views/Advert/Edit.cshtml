@@ -1,0 +1,107 @@
+﻿@model AdvertUpdateViewModel
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>İlan Düzenleme</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Advert" asp-action="Index">İlan İşlemleri</a></li>
+                    <li class="breadcrumb-item active">İlan Düzenleme</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">İlan Düzenleme</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-area="Admin"
+                          asp-controller="Advert"
+                          asp-action="Edit"
+                          method="post">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="Name"></label>
+                                <input class="form-control" asp-for="Name" />
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="Description"></label>
+                                <input class="form-control" asp-for="Description" />
+                                <span class="text-danger" asp-validation-for="Description"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="Comment"></label>
+                                <input class="form-control" asp-for="Comment" />
+                                <span class="text-danger" asp-validation-for="Comment"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="Price"></label>
+                                <input class="form-control" asp-for="Price" />
+                                <span class="text-danger" asp-validation-for="Price"></span>
+                            </div>
+                            <span>İlan Oluşturulma Tarihi: @Model.CreatedDate</span>
+                            <br />
+                            <span>Son Güncelleme: @Model.ModifiedDate</span>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <button class="btn btn-primary" asp-area="Admin" asp-controller="Advert" asp-action="Index">Geri Dön</button>
+                            <button type="submit" class="btn btn-success" style="margin-left:400px" >Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section>>
+@*<h1 class="display-6 mt-2">İlan Güncelleme</h1>
+<hr />
+
+<form asp-area="Admin"
+      asp-controller="Advert"
+      asp-action="Edit"
+      method="post">
+  <div class="row">
+      <div class="col-6">
+          <div class="row">
+              <div class="col">
+                  <div class="mb-3">
+                      <label class="form-label" asp-for="Name"></label>
+                      <input class="form-control" asp-for="Name"/>
+                      <span class="text-danger" asp-validation-for="Name"></span>
+                  </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Description"></label>
+                        <input class="form-control" asp-for="Description" />
+                        <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Price"></label>
+                        <input class="form-control" asp-for="Price" />
+                        <span class="text-danger" asp-validation-for="Price"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" asp-for="Comment"></label>
+                        <input class="form-control" asp-for="Comment" />
+                        <span class="text-danger" asp-validation-for="Comment"></span>
+                    </div>
+
+              </div>
+          </div>
+      </div>
+
+  </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+  </form>*@

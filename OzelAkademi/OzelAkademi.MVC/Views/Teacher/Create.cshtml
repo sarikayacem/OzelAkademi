@@ -1,0 +1,50 @@
+﻿@model AdvertAddViewModel
+<div style="background-color:black; height:180px"></div>
+<div class="row mt-50 mb-70 mr-0">
+    <div class="col-md-3 col-md-offset-4">
+        <h1 class="display-6">Yeni İlan Oluştur</h1>
+        <hr />
+        <form asp-area=""
+              asp-controller="Teacher"
+              asp-action="Create"
+              method="post">
+            <input type="hidden" asp-for="@Model.Id" />
+            <div class="row">
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col">
+                            <div class="h-80">
+                                <label class="form-label" asp-for="Name"></label>
+                                <input class="form-control" asp-for="Name" />
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                            </div>
+                            <div class="h-80">
+                                <label class="form-label" asp-for="Description"></label>
+                                <input class="form-control" asp-for="Description" />
+                                <span class="text-danger" asp-validation-for="Description"></span>
+                            </div>
+                            <div class="h-80">
+                                <label class="form-label" asp-for="Price"></label>
+                                <input class="form-control" asp-for="Price" />
+                                <span class="text-danger" asp-validation-for="Price"></span>
+                            </div>
+                            <div class="h-80">
+                                <label class="form-label" asp-for="Comment"></label>
+                                <input class="form-control" asp-for="Comment" />
+                                <span class="text-danger" asp-validation-for="Comment"></span>
+                            </div>
+                        </div>
+                        <div class="col mb-20">
+                            <label style="margin-right:10px;">Ders Listesi</label>
+
+                            <select asp-for="LessonId" class="form-select w-25 m-auto mb-3" asp-items="@ViewBag.lessons">
+                            </select>
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

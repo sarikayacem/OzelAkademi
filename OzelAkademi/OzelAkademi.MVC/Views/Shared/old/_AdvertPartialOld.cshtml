@@ -1,0 +1,16 @@
+﻿@model AdvertViewModel
+
+
+<div class="card mb-2">
+        <div class="card-body text-center">
+        <img src="~/images/@Model.ImageUrl" />
+        @*<h6>@Model.Teacher.User.Image.Url</h6>*@
+            <h3>@Model.Name</h3>
+            <h4>@Model.Teacher.User.FirstName</h4>
+            <h4>@Model.Price</h4>
+            <h4>@Model.Description</h4>
+            <h4>@Model.Comment</h4>
+            <h4>@Model.Lesson.Name</h4>
+        </div>
+</div>
+

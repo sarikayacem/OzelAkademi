@@ -1,0 +1,72 @@
+﻿@model AdvertListViewModel
+@{
+    List<AdvertViewModel> adverts = Model.Adverts;
+}
+<div style="background-color:black; height:180px"></div>
+<div class="row mt-50 mb-70 mr-0">
+    <div class="container">
+        <div class="container-fluid mt-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="display-6">İlanlarım</h1>
+                <div class="d-flex flex-row align-items-end gap-5">
+                    <div>
+                        <a class="btn btn-success"
+                           asp-area=""
+                           asp-controller="Teacher"
+                           asp-action="Create">İlan Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        @if (Model.Adverts.Count() > 0)
+        {
+
+            <table class="table table-bordered table-sm">
+                <thead class="text-bg-success">
+                    <tr>
+                        <th>İlan Adı</th>
+                        <th>İlan Açıklaması</th>
+                        <th>Ders</th>
+                        <th>İlan Fiyatı</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var advert in adverts)
+                    {
+                        <tr>
+                            <td>@advert.Name</td>
+                            <td>@advert.Description</td>
+                            <td>@advert.Lesson.Name</td>
+                            <td>@advert.Price</td>
+                            <td>
+                                <a class="btn btn-warning btn-sm"
+                           asp-area=""
+                           asp-controller="Teacher"
+                           asp-action="Edit"
+                           asp-route-id="@advert.Id">
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm"
+                           asp-area=""
+                           asp-controller="Teacher"
+                           asp-action="Delete"
+                           asp-route-id="@advert.Id">
+                                    Sil
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            @await Html.PartialAsync("_NoRecord","İlan")
+        }
+    </div>
+</div>
+
+

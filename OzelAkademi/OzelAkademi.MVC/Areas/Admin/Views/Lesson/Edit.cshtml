@@ -1,0 +1,53 @@
+﻿@model LessonUpdateViewModel
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Ders Düzenleme</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Lesson" asp-action="Index">Ders İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Ders Düzenleme</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-5">
+                <!-- general form elements -->
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Ders Düzenleme</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form asp-area="Admin"
+                          asp-controller="Lesson"
+                          asp-action="Edit"
+                          method="post">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label" asp-for="Name"></label>
+                                <span class="text-danger" asp-validation-for="Name"></span>
+                                <input type="text" class="form-control" asp-for="Name" />
+                            </div>
+                            <span>Oluşturulma Tarihi: @Model.CreatedDate</span>
+                            <br />
+                            <span>Son Güncelleme: @Model.ModifiedDate</span>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a class="btn btn-secondary" asp-area="Admin" asp-controller="Lesson" asp-action="Index">Geri Dön</a>
+                            <button type="submit" class="btn btn-success" style="margin-left:300px;">Kaydet</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

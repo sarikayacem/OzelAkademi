@@ -1,0 +1,96 @@
+﻿@model RegisterViewModel
+<div style="background-color:black; height:150px"></div>
+<div class="row mt-40 mb-50 mr-0">
+    <div class="col-md-3 col-md-offset-4 slideInUp">
+        <div class="section-title text-center ">
+            <h3>Kayıt Ol</h3>
+            @*<p>Maecenas sit amet tristique turpis. Quisque porttitor eros quis leo pulvinar, at hendrerit sapien iaculis.</p>*@
+        </div><!-- end title -->
+
+        <form asp-area="" asp-controller="Account" asp-action="RegisterStudent" method="post" enctype="multipart/form-data">
+            <div class="row w-50">
+                <div class="col-6" style="height:80px">
+                    <label class="form-label" asp-for="FirstName"></label>
+                    <span class="text-danger" asp-validation-for="FirstName"></span>
+                    <input class="form-control" asp-for="FirstName" placeholder="Adınız" />
+                </div>
+                <div class="col-6" style="height:80px">
+                    <label class="form-label" asp-for="LastName"></label>
+                    <span class="text-danger" asp-validation-for="LastName"></span>
+                    <input class="form-control" asp-for="LastName" placeholder="Soyadınız" />
+                </div>
+                <div class="col-6 mb-3 h-80">
+                    <label class="form-label" asp-for="Password"></label>
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                    <input class="form-control" asp-for="Password" placeholder="Şifre" />
+                </div>
+                <div class="col-6 mb-3 h-80">
+                    <label class="form-label" asp-for="RePassword"></label>
+                    <span class="text-danger" asp-validation-for="RePassword"></span>
+                    <input class="form-control" asp-for="RePassword" placeholder="Şifrenizi tekrar giriniz" />
+                </div>
+                <div class="col-6 mb-3 h-80">
+                    <label class="form-label" asp-for="Email"></label>
+                    <span class="text-danger" asp-validation-for="Email"></span>
+                    <input class="form-control" asp-for="Email" placeholder="Email" />
+                </div>
+                <div class="col-6 mb-3 h-80">
+                    <label class="form-label" asp-for="UserName"></label>
+                    <span class="text-danger" asp-validation-for="UserName"></span>
+                    <input class="form-control" asp-for="UserName" placeholder="Kullanıcı Adı" />
+                </div>
+                <div class="col-6 mb-3 h-80">
+                    <label class="form-label" asp-for="Image"></label>
+                    <span class="text-danger" asp-validation-for="Image"></span>
+                    <input type="file" class="form-control" asp-for="Image" accept="images/" />
+                </div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Kaydol</button>
+
+        </form>
+    </div><!-- end col -->
+</div><!-- end row -->
+@*<h1 class="display-6">Kayıt Ol</h1>
+<hr />
+<form asp-area="" asp-controller="Account" asp-action="RegisterStudent" method="post" enctype="multipart/form-data">
+    <div class="row w-50">
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="FirstName"></label>
+            <input class="form-control" asp-for="FirstName" />
+            <span class="text-danger" asp-validation-for="FirstName"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="LastName"></label>
+            <input class="form-control" asp-for="LastName" />
+            <span class="text-danger" asp-validation-for="LastName"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Password"></label>
+            <input class="form-control" asp-for="Password" />
+            <span class="text-danger" asp-validation-for="Password"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="RePassword"></label>
+            <input class="form-control" asp-for="RePassword" />
+            <span class="text-danger" asp-validation-for="RePassword"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" />
+            <span class="text-danger" asp-validation-for="Email"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="UserName"></label>
+            <input class="form-control" asp-for="UserName" />
+            <span class="text-danger" asp-validation-for="UserName"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" asp-for="Image"></label>
+            <input type="file" class="form-control" asp-for="Image" accept="images/" />
+            <span class="text-danger" asp-validation-for="Image"></span>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydol</button>
+
+</form>*@

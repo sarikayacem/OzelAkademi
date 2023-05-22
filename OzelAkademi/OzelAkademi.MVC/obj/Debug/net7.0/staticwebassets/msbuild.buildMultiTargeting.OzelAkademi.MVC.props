@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\OzelAkademi.MVC.props" />
+</Project>

@@ -1,0 +1,88 @@
+﻿@using OzelAkademi.Entity.Concrete.Identity;
+@model List<Student>
+@{
+    List<Student> students = Model.ToList();
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Öğrenci İşlemleri</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Kullanıcı İşlemleri</a></li>
+                    <li class="breadcrumb-item active">Öğrenci İşlemleri</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Öğrencileri listeleme, düzenleme ve silme işlemleri yapabilirsiniz.</h3>
+                    </div>                    
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Fotoğraf</th>
+                                    <th>Ad</th>
+                                    <th>Soyad</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Email</th>
+                                    <th>Email Onayı</th>
+                                    <th width="240">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var student in students)
+                                {
+                                    <tr>
+                                        <td class="align-middle"><img src="~/images/@student.User.Image.Url" width="50" style="border-radius:50%" /></td>
+                                        <td class="align-middle">@student.User.FirstName</td>
+                                        <td class="align-middle">@student.User.LastName</td>
+                                        <td class="align-middle">@student.User.UserName</td>
+                                        <td class="align-middle">@student.User.Email</td>
+                                        <td class="align-middle">
+                                            <form asp-area="Admin"
+                                              asp-controller="User"
+                                              asp-action="ConfirmEmail"
+                                              asp-route-id=@student.User.Id
+                                                  class="form-check"
+                                                  id="form-isconfirmed-@student.User.Id">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input"
+                                                       type="checkbox"
+                                                           role="switch" id="flexSwitchCheckChecked" asp-for="@student.User.EmailConfirmed" onchange="document.getElementById('form-isconfirmed-@student.User.Id').submit();">
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td class="align-middle">
+                                            <a class="btn btn-warning btn-sm"
+                                           asp-area="Admin"
+                                           asp-controller="User"
+                                           asp-action="Edit"
+                                           asp-route-id=@student.User.Id>Kullanıcıyı Göster</a>
+                                            <a class="btn btn-outline-danger btn-sm"
+                                           asp-area="Admin"
+                                           asp-controller="User"
+                                           asp-action="Delete"
+                                           asp-route-id=@student.User.Id>Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
